@@ -7,8 +7,7 @@ from data import config
 def get_aternos_auth() -> Client:
     try:
         return Client.restore_session()
-    except Exception as e:
-        logging.exception(e)
+    except FileNotFoundError:
         if config.ATERNOS_PASS:
             logging.info("Successfully authenticated with Aternos login | password")
             return Client.from_credentials(username=config.ATERNOS_LOGIN, password=config.ATERNOS_PASS)
