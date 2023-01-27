@@ -14,6 +14,7 @@ if not exist %~dp0.env (
     cls
     echo.
     echo Error^: .env not found. Please create this file
+    pause
 )
 call %~dp0venv\Scripts\activate.bat
 python3.10 -m pip install -r requirements.txt
