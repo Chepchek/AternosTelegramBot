@@ -31,7 +31,7 @@
 
 > ADMINS these are fields for entering telegram IDs of users who will be able to use your bot
 
-> **WARNING**
+> **Warning**
 >
 > Be careful who you give access to, will be able to manage your servers
 
