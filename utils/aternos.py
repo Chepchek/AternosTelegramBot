@@ -8,6 +8,8 @@ aternos_session = os.path.join(os.path.dirname(__file__), '../aternos_session')
 
 
 def saved_sessions():
+    if not os.path.exists(aternos_session):
+        os.makedirs(aternos_session)
     sessions = list()
     for saved_session in os.listdir(aternos_session):
         sessions.append(os.path.join(aternos_session, saved_session))
@@ -21,8 +23,7 @@ def get_aternos_auth() -> Client:
         session = Client.restore_session(file=saved_sessions())
         logging.info('Successfully restored session from aternos_session directory')
         return session
-    except FileNotFoundError as e:
-        logging.exception(e)
+    except (FileNotFoundError, TypeError) as e:
         if config.ATERNOS_PASS:
             logging.info("Successfully authenticated with Aternos login | password")
             session = Client.from_credentials(username=config.ATERNOS_LOGIN,
