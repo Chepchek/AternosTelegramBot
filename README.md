@@ -35,7 +35,7 @@
 >
 > Be careful who you give access to, will be able to manage your servers
 
-> You can get them, for example, from a [bot](https://t.me/getmyid_bot) in a telegram
+> You can get them, for example, from a [bot in a telegram](https://t.me/getmyid_bot)
 >
 > BOT_TOKEN This is the main token for the bot to work, you need to get it using
 > the [official bot in telegram](https://t.me/BotFather)
