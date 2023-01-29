@@ -26,7 +26,7 @@ def get_server_panel(server_id: str) -> InlineKeyboardMarkup:
         server_panel_kb.add(InlineKeyboardButton(text="Выключить сервер", callback_data="ShutdownServer"))
         server_panel_kb.add(InlineKeyboardButton(text="Перезапустить", callback_data="RestartServer"))
         server_panel_kb.add(InlineKeyboardButton(text="Просмотреть игроков", callback_data="GetPlayerList"))
-        server_panel_kb.add(InlineKeyboardButton(text="Открыть консоль", callback_data="OpenServerConsole"))
+        # server_panel_kb.add(InlineKeyboardButton(text="Открыть консоль", callback_data="OpenServerConsole"))
     elif server.status == "starting":
         server_panel_kb.add(InlineKeyboardButton(text="Остановить", callback_data="CancelStart"))
     else:
