@@ -2,6 +2,7 @@ from typing import Union, Tuple
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.callback_data import CallbackData
+from python_aternos import AternosServer
 
 from loader import AternosClient
 
@@ -25,7 +26,8 @@ def get_server_panel(server_id: str) -> InlineKeyboardMarkup:
         server_panel_kb.add(InlineKeyboardButton(text="Выключить сервер", callback_data="ShutdownServer"))
         server_panel_kb.add(InlineKeyboardButton(text="Перезапустить", callback_data="RestartServer"))
         server_panel_kb.add(InlineKeyboardButton(text="Просмотреть игроков", callback_data="GetPlayerList"))
-    elif server.status == "loading":
+        server_panel_kb.add(InlineKeyboardButton(text="Открыть консоль", callback_data="OpenServerConsole"))
+    elif server.status == "starting":
         server_panel_kb.add(InlineKeyboardButton(text="Остановить", callback_data="CancelStart"))
     else:
         server_panel_kb.add(InlineKeyboardButton(text="Запустить сервер", callback_data="StartServer"))
@@ -33,11 +35,10 @@ def get_server_panel(server_id: str) -> InlineKeyboardMarkup:
     return server_panel_kb
 
 
-def get_server_players(server_id: str) -> Union[tuple[InlineKeyboardMarkup, str], None]:
+def get_server_players(server: AternosServer) -> Union[tuple[InlineKeyboardMarkup, str], tuple[None, None]]:
     players_kb = InlineKeyboardMarkup()
-    server = AternosClient.get_server(servid=server_id)
     if not server.players_list:
-        return None
+        return None, None
     for player in server.players_list:
         players_kb.add(InlineKeyboardButton(text=player, callback_data="None"))
     return players_kb, f"{server.players_count}/{server.slots}"
