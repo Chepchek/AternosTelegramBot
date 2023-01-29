@@ -23,7 +23,7 @@
 
 #
 
-    Python version 3.10 is required or the file start.bat will not work
+    Python not lower than version 3.7
 
 # Before launching the bot
 

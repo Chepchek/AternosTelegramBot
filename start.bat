@@ -7,7 +7,7 @@ python -V | find "Python"    >NUL 2>NUL && (goto :PYTHON_DOES_EXIST)
 if not exist %~dp0venv\ (
     echo.
     echo Warn^: File  venv not found... Download requirements
-    python3 -m venv venv
+    python -m venv venv
     call %~dp0venv\Scripts\activate.bat
 )
 if not exist %~dp0.env (
@@ -18,16 +18,17 @@ if not exist %~dp0.env (
     exit
 )
 call %~dp0venv\Scripts\activate.bat
-python3.10 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 cls
 color 2
 echo. & echo. & echo.
 echo the author of the bot @chepchek https://github.com/Chepchek
 echo.
 echo If you have any problems or suggestions: https://t.me/UserNotZFound
+echo. & echo. & echo.
 timeout 10
 color F
-python3.10 app.py
+python app.py
 pause
 
 :PYTHON_DOES_NOT_EXIST
@@ -40,7 +41,7 @@ pause
 :PYTHON_VERSION_NOT_SUPPORTED
 color 4
 cls
-echo Python version is not supported, please download python 3.10 or above
+echo Python version is not supported, please download python 3.7 or above
 pause
 
 
@@ -59,7 +60,6 @@ set minor=%ver%
 set minor=%minor:~2,3%
 
 if %major% GEQ 3 (
-    if %minor%  LSS 10 goto :PYTHON_VERSION_NOT_SUPPORTED
     goto :MAIN
 )
 pause
