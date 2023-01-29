@@ -1,12 +1,15 @@
 # Aternos Telegram Bot on aiogram 2.x and pytohn_aternos
 
+# With this bot, you can start, stop and restart the server, view the list of players, the memory used in your telegram bot
+
 ## The bot is based on an unofficial library for working with the Atheros API, from the developer python_atheros
 
 > **Warning**
 >
 > According to the
 >
-> Aternos' [Terms of Service §5.2e](https://aternos.gmbh/en/aternos/terms#:~:text=Automatically%20accessing%20our%20website%20or%20automating%20actions%20on%20our%20website.),
+>
+Aternos' [Terms of Service §5.2e](https://aternos.gmbh/en/aternos/terms#:~:text=Automatically%20accessing%20our%20website%20or%20automating%20actions%20on%20our%20website.),
 > you must not use any software or APIs for automated access,
 > beacuse they don't receive money from advertisting in this case.
 >
