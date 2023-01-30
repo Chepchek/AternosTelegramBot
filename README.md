@@ -1,4 +1,4 @@
-# Aternos Telegram Bot on aiogram 2.x and pytohn_aternos
+# Aternos Telegram Bot on aiogram 2.x and python_aternos
 
 # With this bot, you can start, stop and restart the server, view the list of players, the memory used in your telegram bot
 
