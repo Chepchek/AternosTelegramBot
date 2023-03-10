@@ -16,7 +16,7 @@ def get_text(server_id: str):
             f"<b>IP:</b> {server.address}\n"
             f"<b>Status:</b> {server.status.upper()}\n"
             f"<b>Online:</b> {server.players_count}/{server.slots}\n"
-            f"<b>Minecraft edition:</b> {'JAVA' if server.is_bedrock == 0 else 'BEDROCK'}\n"
+            f"<b>Minecraft edition:</b> {'BEDROCK' if server.is_bedrock else 'JAVA'}\n"
             f"<b>Server version:</b> {server.software} | {server.version}\n"
             f"<b>Используется RAM:</b> {server.ram}\n\n\n"
             f"<b>Последнее обновление: {datetime.now(pytz.timezone('Europe/Moscow')).strftime('%y.%m.%d %H:%M:%S')}</b>"
@@ -108,20 +108,3 @@ async def get_player_list(call: types.CallbackQuery, state: FSMContext):
         await call.answer("Список игроков пуст или недоступен!", show_alert=True)
 
 
-# @dp.callback_query_handler(text="OpenServerConsole", state="ServerDetail")
-# async def get_console(call: types.CallbackQuery, state: FSMContext):
-#     await call.message.answer("Консоль сервера")
-#     data = await state.get_data()
-#     server = data["server"]
-#     if server.status in ['offline', 'loading']:
-#         await call.answer("Сервер должен быть запущен!")
-#         return None
-#     socket = server.wss()
-#     await socket.connect()
-#     await socket.command("/help")
-#     while True:
-#         @socket.wssreceiver(Streams.console, call)
-#         async def console(msg: Dict[Any, Any], args: Tuple[str]) -> None:
-#             logging.info(args[0], 'received', msg)
-#             await call.message.answer(f"{args[0]} | {msg}")
-#             print(msg)

@@ -1,7 +1,8 @@
-from typing import Union, Tuple
+from typing import Union
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.callback_data import CallbackData
+
 from python_aternos import AternosServer
 
 from loader import AternosClient
@@ -13,9 +14,7 @@ def get_server_list_kb() -> InlineKeyboardMarkup:
     server_list_kb = InlineKeyboardMarkup()
     for server in AternosClient.list_servers():
         server_list_kb.add(InlineKeyboardButton(text=server.address,
-                                                callback_data=ServerCallback_data.new(server_id=server.servid)
-                                                )
-                           )
+                                                callback_data=ServerCallback_data.new(server_id=server.servid)))
     return server_list_kb
 
 
@@ -26,7 +25,7 @@ def get_server_panel(server_id: str) -> InlineKeyboardMarkup:
         server_panel_kb.add(InlineKeyboardButton(text="Выключить сервер", callback_data="ShutdownServer"))
         server_panel_kb.add(InlineKeyboardButton(text="Перезапустить", callback_data="RestartServer"))
         server_panel_kb.add(InlineKeyboardButton(text="Просмотреть игроков", callback_data="GetPlayerList"))
-        # server_panel_kb.add(InlineKeyboardButton(text="Открыть консоль", callback_data="OpenServerConsole"))
+        server_panel_kb.add(InlineKeyboardButton(text="Открыть консоль", callback_data="OpenServerConsole"))
     elif server.status == "starting":
         server_panel_kb.add(InlineKeyboardButton(text="Остановить", callback_data="CancelStart"))
     else:
