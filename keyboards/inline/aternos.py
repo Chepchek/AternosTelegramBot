@@ -35,7 +35,7 @@ def get_server_panel(server_id: str) -> InlineKeyboardMarkup:
     return server_panel_kb
 
 
-def get_server_players(server: AternosServer) -> Union[tuple[InlineKeyboardMarkup, str], tuple[None, None]]:
+def get_server_players(server: AternosServer) -> Union[Tuple[InlineKeyboardMarkup, str], Tuple[None, None]]:
     players_kb = InlineKeyboardMarkup()
     if not server.players_list:
         return None, None
