@@ -4,7 +4,6 @@ import pytz
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from data.config import ADMINS
 from keyboards.inline.aternos import (
     get_server_list_kb,
     get_server_panel,
@@ -138,9 +137,9 @@ async def get_player_list(call: types.CallbackQuery, state: FSMContext):
         await call.answer(string("current_players_error"), show_alert=True)
 
 
-@dp.callback_query_handler(text="None", state="ServerDetail")
+@dp.callback_query_handler(text="None")
 async def get_player_info(call: types.CallbackQuery, state: FSMContext):
-    return
+    await call.answer()
 
 
 # @dp.callback_query_handler(text="OpenServerConsole", state="ServerDetail")
