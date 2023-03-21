@@ -14,7 +14,7 @@
 > beacuse they don't receive money from advertisting in this case.
 >
 > I always try to hide automated python-aternos requests
-> using browser-specific headers/cookies,  
+> using browser-specific headers/cookies,
 > but you should make backups to restore your world
 > if Aternos detects violation of ToS and bans your account
 > (view issues [#16](https://github.com/DarkCat09/python-aternos/issues/16)
@@ -54,10 +54,13 @@
 ```
     ADMINS=1234567,7654321
     BOT_TOKEN=123456:aasdgsdf
+    BOT_LANG=english
+    BOT_NOTIFY_STARTED=false
     ATERNOS_LOGIN=
     ATERNOS_PASS=
     ATERNOS_PASS_HASH=
     ATERNOS_COOKIE=
 ```
+> Buttons language supported: russian and english
 
 ### Now, run start.bat, you should have the console open and the bot will start in [pooling mode](https://core.telegram.org/bots/api#getupdates)
