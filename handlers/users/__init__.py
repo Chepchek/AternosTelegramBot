@@ -1,3 +1,2 @@
-from . import help
-from . import start
-from . import aternos
+from .start import start_router
+from .server import server_manager_router

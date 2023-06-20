@@ -3,11 +3,16 @@ from environs import Env
 env = Env()
 env.read_env()
 
-BOT_TOKEN = env.str("BOT_TOKEN")  # Get a bot token
-BOT_LANG = env.str("BOT_LANG", "english")
-BOT_NOTIFY_STARTED = env.bool("BOT_NOTIFY_STARTED", False)
-ADMINS = env.list("ADMINS")  # admins list
-ATERNOS_LOGIN = env.str("ATERNOS_LOGIN", None)
-ATERNOS_PASS = env.str("ATERNOS_PASS", None)
+TELEGRAM_TOKEN = env.str("TELEGRAM_TOKEN", None)  # BOT TOKEN
+ADMIN = env.list("ADMIN", [])  # TELEGRAM ID`S USERS FOR MANIPULATE YOUR`S SERVERS
+DEBUG = env.bool("DEBUG", False)  # LOGGING LEVEL INFO IF DEBUG IS FALSE
+
+LOCALE = env.str("LOCALE", "en").lower()
+
+ATERNOS_LOGIN = env.str("ATERNOS_LOGIN", None)  # ATERNOS LOGIN
+ATERNOS_PASS = env.str("ATERNOS_PASS", None)  # USE ONLY PASS OR PASS HASH
 ATERNOS_PASS_HASH = env.str("ATERNOS_PASS_HASH", None)
-ATERNOS_COOKIE = env.str("ATERNOS_COOKIE", None)
+
+
+# DEPRECATED
+ATERNOS_COOKIE = env.str("ATERNOS_COOKIE", None)  # IF YOU USE COOKIE LOGIN PASS AND PASS HASH ARE NOT NEEDED

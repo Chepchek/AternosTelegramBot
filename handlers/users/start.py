@@ -1,16 +1,16 @@
-from aiogram import types
-from aiogram.dispatcher.filters.builtin import CommandStart
-from data.config import ADMINS
+from aiogram import Router, types
+from aiogram.filters import CommandStart
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import any_state
+from aiogram.utils.i18n import gettext as _
 
-from keyboards.inline.aternos import get_server_list_kb
-from l10n.strings import string
+from keyboards.inline.aternos.server import get_kb_server_list
 
-from loader import dp
+start_router = Router(name=__name__)
 
 
-@dp.message_handler(CommandStart(), user_id=ADMINS)
-async def bot_start(message: types.Message):
-    await message.answer(
-        f"{string('hello')}, {message.from_user.full_name}!",
-        reply_markup=get_server_list_kb(),
-    )
+@start_router.message(CommandStart(), any_state)
+async def command_start_handler(message: types.Message, state: FSMContext):
+    await state.clear()
+    await message.answer(_("Welcome, <b>{username}</b>").format(username=message.from_user.username),
+                         reply_markup=get_kb_server_list())
