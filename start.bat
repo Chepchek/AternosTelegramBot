@@ -28,7 +28,7 @@ echo If you have any problems or suggestions: https://t.me/UserNotZFound
 echo. & echo. & echo.
 timeout 10
 color F
-python app.py
+python pooling.py
 pause
 
 :PYTHON_DOES_NOT_EXIST

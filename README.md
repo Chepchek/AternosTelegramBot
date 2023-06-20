@@ -1,4 +1,4 @@
-# Aternos Telegram Bot on aiogram 2.x and python_aternos
+# Aternos Telegram Bot on aiogram 3.0.0b8 and python_aternos 3.0.0
 
 # With this bot, you can start, stop and restart the server, view the list of players, the memory used in your telegram bot
 
@@ -26,7 +26,7 @@
 
 #
 
-    Python not lower than version 3.7
+    Python not lower than version 3.10
 
 # Before launching the bot
 
@@ -38,14 +38,18 @@
 >
 > Be careful who you give access to, will be able to manage your servers
 
-> You can get them, for example, from a [bot in a telegram](https://t.me/getmyid_bot)
+> You can get them, for example, from a [BOT IN A TELEGRAM](https://t.me/getmyid_bot)
 >
 > BOT_TOKEN This is the main token for the bot to work, you need to get it using
-> the [official bot in telegram](https://t.me/BotFather)
+> the [OFFICIAL BOT IN TELEGRAM](https://t.me/BotFather)
 
 ## You have several ways to log in to Aternos
 
-> LOGIN / PASS | LOGIN / PASSHASH(MD5) | COOKIE
+> LOGIN / PASS 
+> 
+> OR
+> 
+> LOGIN / PASSHASH(MD5)
 
 #### Fill in the fields by which you want to log in, leave the rest empty, the bot will figure out what to use
 
@@ -53,13 +57,11 @@
 
 ```
     ADMINS=1234567,7654321
-    BOT_TOKEN=123456:aasdgsdf
-    BOT_LANG=english
-    BOT_NOTIFY_STARTED=false
+    TELEGRAM_TOKEN=123456:aasdgsdf
+    LOCALE=en or ru
     ATERNOS_LOGIN=
     ATERNOS_PASS=
     ATERNOS_PASS_HASH=
-    ATERNOS_COOKIE=
 ```
 > Buttons language supported: russian and english
 
